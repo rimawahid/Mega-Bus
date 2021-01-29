@@ -125,23 +125,28 @@
     <script>
         // firstclass ticket increase
         document.getElementById('firstclass-increase').addEventListener('click', function(){
-         const firstclassInput = document.getElementById('firstclass-count');
-         const firstclassCount = parseInt(firstclassInput.value);
-         const firstclassNewCount = firstclassCount + 1;
-         firstclassInput.value = firstclassNewCount; 
-         const firstclassTotal = firstclassNewCount * 150;
-         document.getElementById('firstclass-total').innerHTML = firstclassTotal;
+            handleTicketChange(true);
         })
 
         // firstclass ticket decrease
         document.getElementById('firstclass-decrease').addEventListener('click', function(){
+            handleTicketChange(false);
+        })
+        function handleTicketChange(isIncrease){
             const firstclassInput = document.getElementById('firstclass-count');
             const firstclassCount = parseInt(firstclassInput.value);
-            const firstclassNewCount = firstclassCount - 1;
+            // const firstclassNewCount = firstclassCount - 1;
+            let firstclassNewCount = firstclassCount;
+            if(isIncrease == true){
+                firstclassNewCount = firstclassCount + 1;
+            }
+            if(isIncrease == false && firstclassCount > 0){
+                firstclassNewCount = firstclassCount - 1
+            }
             firstclassInput.value = firstclassNewCount;
             const firstclassTotal = firstclassNewCount * 150;
             document.getElementById('firstclass-total').innerHTML = firstclassTotal;
-        })
+        }
     </script>
 </body>
 
