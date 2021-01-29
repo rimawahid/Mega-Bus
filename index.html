@@ -63,11 +63,12 @@
                 <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input id="firstclass-count" class="inp-style inp-width" type="number" value="1" name="">
                 </div>
                 <div class="plus-minus-btn">
-                    <p>+ -</p>
+                    <p><span id="firstclass-increase" class="click">+</span> <span id="firstclass-decrease" class="click">-</span></p>
                 </div>
+                
             </div>
                 <div class="input-group f-class">
                     <div>
@@ -75,10 +76,18 @@
                         <input class="inp-style inp-width" type="number" name="">
                     </div>
                     <div class="plus-minus-btn">
-                        <p> <span>+</span> <span>-</span> </p>
+                        <p> <span class="click">+</span> <span class="click">-</span> </p>
                     </div>
                 </div>
 
+            </div>
+            <div class="inputs total">
+                <div class="input-group">
+                    <p id="firstclass-total">$150</p>
+                </div>
+                <div class="input-group">
+                    <p>$100</p>
+                </div>
             </div>
             <div class="calculations">
                 <div class="amount">
@@ -113,6 +122,27 @@
     </main>
 
     <!--Thank You-->
+    <script>
+        // firstclass ticket increase
+        document.getElementById('firstclass-increase').addEventListener('click', function(){
+         const firstclassInput = document.getElementById('firstclass-count');
+         const firstclassCount = parseInt(firstclassInput.value);
+         const firstclassNewCount = firstclassCount + 1;
+         firstclassInput.value = firstclassNewCount; 
+         const firstclassTotal = firstclassNewCount * 150;
+         document.getElementById('firstclass-total').innerHTML = firstclassTotal;
+        })
+
+        // firstclass ticket decrease
+        document.getElementById('firstclass-decrease').addEventListener('click', function(){
+            const firstclassInput = document.getElementById('firstclass-count');
+            const firstclassCount = parseInt(firstclassInput.value);
+            const firstclassNewCount = firstclassCount - 1;
+            firstclassInput.value = firstclassNewCount;
+            const firstclassTotal = firstclassNewCount * 150;
+            document.getElementById('firstclass-total').innerHTML = firstclassTotal;
+        })
+    </script>
 </body>
 
 </html>

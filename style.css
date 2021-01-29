@@ -122,3 +122,9 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
+.click{
+    cursor: pointer;
+}
+/*.inputs.total {
+    display: none;
+}
