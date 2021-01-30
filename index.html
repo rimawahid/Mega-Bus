@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
+    <!-- Fontawesome icon-->    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css
+    ">    
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -33,11 +36,8 @@
             <h1>Mega City Bus</h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         </div>
-
-
         <div class="booking-form">
             <h3>Explore By Bus</h3>
-
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">From</label>
@@ -48,7 +48,6 @@
                     <input class="inp-style" type="text" name="" placeholder="Chittagone">
                 </div>
             </div>
-
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
@@ -63,25 +62,23 @@
                 <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input id="firstClass-count" class="inp-style inp-width" type="number" value="0" name="">
+                    <input id="firstClass-count" class="inp-style inp-width"  value="0" name="">
                 </div>
                 <div class="plus-minus-btn">
                     <p><span onclick="handleTicketChange('firstClass' , true);" class="click">+</span> 
                        <span onclick="handleTicketChange('firstClass' , false)" class="click">-</span></p>
                 </div>
-                
             </div>
                 <div class="input-group f-class">
                     <div>
                         <label for="">Economy ($100)</label>
-                        <input id="economy-count" class="inp-style inp-width" type="number" value="0" name="">
+                        <input id="economy-count" class="inp-style inp-width"  value="0" name="">
                     </div>
                     <div class="plus-minus-btn">
                         <p> <span onclick="handleTicketChange('economy', true)" class="click">+</span>
                             <span onclick="handleTicketChange('economy', false)" class="click">-</span> </p>
                     </div>
                 </div>
-
             </div>
             <div class="inputs total">
                 <div class="input-group">
@@ -100,7 +97,6 @@
                         <p id ="total-price">$00</p>
                     </div>
                 </div>
-
                 <div class="amount">
                     <div class="left">
                         <p>Charge 10% VAT</p>
@@ -119,12 +115,19 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="button" class="btn-style">Book Now</button>
         </div>
-        
     </main>
+    <!--Button CLick-->
+    <div class="bg-model">
+        <div class="model-content">
+            <div class="close">+</div>
+            <i id="icon" class="far fa-check-circle"></i>
+            <h2 class="thanks">Thanks for !</h2>
+            <h4>Buying Ticket</h4>
+        </div>
+    </div>
 
-    <!--Thank You-->
     <script>
         // Ticket Count
         function handleTicketChange(ticket ,isIncrease){
@@ -149,7 +152,7 @@
         calculateTotal();
         }
 
-// Calculated Total
+        // Calculated Total
         function calculateTotal(){
             const firstClassCount = getInputValue('firstClass');
 
@@ -170,7 +173,14 @@
             return ticketCount;
          }
 
+         // Book now button
+         document.getElementById('button').addEventListener('click',function(){
+             document.querySelector('.bg-model').style.display = 'flex';
+         });
+
+         document.querySelector('.close').addEventListener('click',function(){
+             document.querySelector('.bg-model').style.display = 'none';
+         })
     </script>
 </body>
-
 </html>
